@@ -1,4 +1,4 @@
-module github.com/shirou/mqtunnel
+module github.com/Staatsgeheim/libmqttunnel
 
 go 1.20
 

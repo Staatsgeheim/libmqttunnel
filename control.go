@@ -1,4 +1,4 @@
-package mqtunnel
+package libmqttunnel
 
 import "math/rand"
 

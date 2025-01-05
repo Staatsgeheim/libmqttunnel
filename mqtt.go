@@ -1,4 +1,4 @@
-package mqtunnel
+package libmqttunnel
 
 import (
 	"context"
@@ -225,11 +225,19 @@ func getMQTTOptions(conf Config) (*mqtt.ClientOptions, error) {
 		opts.AddBroker(fmt.Sprintf("tcp://%s:%d", conf.Host, conf.Port))
 	} else {
 		opts.AddBroker(fmt.Sprintf("ssl://%s:%d", conf.Host, conf.Port))
-		tlsConfig, err := newTLSConfig(conf)
-		if err != nil {
-			return nil, fmt.Errorf("failed to construct tls config, %v", err)
-		}
-		opts.SetTLSConfig(tlsConfig)
+		if conf.ClientCert != "" {
+			tlsConfig, err := newTLSConfig(conf)
+			if err != nil {
+				return nil, fmt.Errorf("failed to construct tls config, %v", err)
+			}
+			opts.SetTLSConfig(tlsConfig)
+		}		
+	}
+	if conf.UserName != "" {
+		opts.SetUsername(conf.UserName)
+	}
+	if conf.Password != "" {
+		opts.SetPassword(conf.Password)
 	}
 	opts.SetClientID(conf.ClientID)
 	opts.SetCleanSession(true)
