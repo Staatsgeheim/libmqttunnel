@@ -1,3 +1,4 @@
-mqtunnel
+libmqttunnel
 
 dist/
+*.dll
