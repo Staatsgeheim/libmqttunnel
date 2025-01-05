@@ -1,7 +1,7 @@
 {
     "host": "localhost",
     "port": 1883,
-	"username": "User",
-	"password": "Password",
+    "username": "User",
+    "password": "Password",
     "control": "device/1/control"
 }
