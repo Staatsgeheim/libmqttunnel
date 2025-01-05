@@ -15,8 +15,8 @@ You can use client certs as well as username/password in the Config file.
 {
     "host": "mqttbroker.example",
     "port": 8883,
-	"username", "",
-	"password", "",
+    "username", "",
+    "password", "",
     "caCert": "certs/root-CA.crt",
     "clientCert": "certs/5a880e326f-certificate.pem.crt",
     "privateKey": "certs/5a880e326f-private.pem.key",
