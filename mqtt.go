@@ -206,7 +206,6 @@ func newTLSConfig(config Config) (*tls.Config, error) {
 		ClientAuth:         tls.NoClientCert,
 		ClientCAs:          nil,
 		Certificates:       []tls.Certificate{cert},
-		NextProtos:         []string{"x-amzn-mqtt-ca"},
 	}, nil
 }
 
