@@ -27,6 +27,15 @@ func ReadConfig(filePath string) (Config, error) {
 	if err != nil {
 		return ret, fmt.Errorf("read config error, %w", err)
 	}
+	
+	if err := json.Unmarshal(buf, &ret); err != nil {
+		return ret, fmt.Errorf("read config marshal error, %w", err)
+	}
+	return ret, nil
+}
+
+func ParseConfig(buf []byte) (Config, error) {
+	var ret Config
 
 	if err := json.Unmarshal(buf, &ret); err != nil {
 		return ret, fmt.Errorf("read config marshal error, %w", err)
