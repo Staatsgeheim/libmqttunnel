@@ -27,6 +27,7 @@ You can use client certs as well as username/password in the Config file.
 Other options
 
 - `clientId`: MQTT ClientID. If empty, random string is generated
+- `ignoreSslErrors`: MQTT Client will ignore SSL errors. If empty, default is false
 
 
 # Architecture
