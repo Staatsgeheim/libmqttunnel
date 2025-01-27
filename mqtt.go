@@ -230,7 +230,12 @@ func getMQTTOptions(conf Config) (*mqtt.ClientOptions, error) {
 				return nil, fmt.Errorf("failed to construct tls config, %v", err)
 			}
 			opts.SetTLSConfig(tlsConfig)
-		}		
+		} else if conf.IgnoreSslErrors {
+			tlsConfig := &tls.Config {
+				InsecureSkipVerify: true,
+			}
+			opts.SetTLSConfig(tlsConfig)
+		}
 	}
 	if conf.UserName != "" {
 		opts.SetUsername(conf.UserName)

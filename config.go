@@ -7,17 +7,17 @@ import (
 )
 
 type Config struct {
-	Host     string `json:"host"`
-	Port     int    `json:"port"`
-	UserName string `json:"username"`
-	Password string `json:"password"`
-	ClientID string `json:"clientId"`
+	Host     	string `json:"host"`
+	Port     	int    `json:"port"`
+	UserName 	string `json:"username"`
+	Password 	string `json:"password"`
+	ClientID 	string `json:"clientId"`
 
-	CaCert     string `json:"caCert"`
-	ClientCert string `json:"clientCert"`
-	PrivateKey string `json:"privateKey"`
-
-	Control string `json:"control"`
+	CaCert     	string `json:"caCert"`
+	ClientCert 	string `json:"clientCert"`
+	PrivateKey 	string `json:"privateKey"`
+	IgnoreSslErrors bool   `json:"ignoreSslErrors"`
+	Control 	string `json:"control"`
 }
 
 func ReadConfig(filePath string) (Config, error) {
